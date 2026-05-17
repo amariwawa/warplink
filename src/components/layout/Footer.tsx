@@ -6,10 +6,10 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-24">
           <a 
-            href="mailto:hello@warplink.studio" 
+            href="mailto:amari@warplink.space" 
             className="text-4xl md:text-6xl lg:text-[100px] font-black tracking-tighter hover:opacity-50 transition-opacity duration-300 break-all"
           >
-            HELLO@WARPLINK.STUDIO
+            AMARI@WARPLINK.SPACE
           </a>
         </div>
 
