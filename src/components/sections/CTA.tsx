@@ -6,6 +6,18 @@ import { ArrowRight } from "lucide-react";
 
 export const CTA: React.FC = () => {
   const [isFormVisible, setIsFormVisible] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`New Message from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    window.location.href = `mailto:amari@warplink.space?subject=${subject}&body=${body}`;
+  };
 
   React.useEffect(() => {
     const handleOpenForm = () => {
@@ -53,7 +65,7 @@ export const CTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-[10px] font-bold tracking-[0.5em] text-white/20 uppercase mb-8"
+            className="text-[10px] font-bold tracking-[0.5em] text-white/40 uppercase mb-8"
           >
             Start your project
           </motion.span>
@@ -107,11 +119,11 @@ export const CTA: React.FC = () => {
                 </h2>
               </motion.div>
 
-              <form className="flex flex-col space-y-20">
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-20">
                 {[
-                  { label: "What's your name?", placeholder: "Name" },
-                  { label: "Where can we reach you?", placeholder: "Email" },
-                  { label: "What's on your mind?", placeholder: "Message" }
+                  { id: "name", label: "What's your name?", placeholder: "Name", type: "text" },
+                  { id: "email", label: "Where can we reach you?", placeholder: "Email", type: "email" },
+                  { id: "message", label: "What's on your mind?", placeholder: "Message", type: "textarea" }
                 ].map((field, idx) => (
                   <motion.div 
                     key={idx}
@@ -120,12 +132,25 @@ export const CTA: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.3 + idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="flex flex-col space-y-6"
                   >
-                    <label className="text-[10px] text-white/20 uppercase tracking-[0.4em] font-bold">{field.label}</label>
-                    <input 
-                      type="text" 
-                      className="bg-transparent border-b border-white/5 pb-8 text-2xl md:text-3xl text-white placeholder-white/[0.02] focus:outline-none focus:border-white/20 transition-colors font-medium tracking-tight"
-                      placeholder={field.placeholder}
-                    />
+                    <label className="text-[10px] text-white/60 uppercase tracking-[0.4em] font-bold">{field.label}</label>
+                    {field.type === "textarea" ? (
+                      <textarea 
+                        required
+                        value={formData[field.id as keyof typeof formData]}
+                        onChange={(e) => setFormData({ ...formData, [field.id]: e.target.value })}
+                        className="bg-transparent border-b border-white/40 pb-8 text-2xl md:text-3xl text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-medium tracking-tight min-h-[120px] resize-none"
+                        placeholder={field.placeholder}
+                      />
+                    ) : (
+                      <input 
+                        required
+                        type={field.type}
+                        value={formData[field.id as keyof typeof formData]}
+                        onChange={(e) => setFormData({ ...formData, [field.id]: e.target.value })}
+                        className="bg-transparent border-b border-white/40 pb-8 text-2xl md:text-3xl text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-medium tracking-tight"
+                        placeholder={field.placeholder}
+                      />
+                    )}
                   </motion.div>
                 ))}
 
@@ -136,8 +161,8 @@ export const CTA: React.FC = () => {
                   className="pt-16 flex justify-center"
                 >
                   <button 
-                    type="button"
-                    className="group flex items-center space-x-8"
+                    type="submit"
+                    className="group flex items-center space-x-8 focus:outline-none"
                   >
                     <span className="text-white text-xs font-bold uppercase tracking-[0.4em]">
                       Send Message
