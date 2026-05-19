@@ -41,14 +41,15 @@ export const LogoCloud: React.FC = () => {
   ];
 
   return (
-    <section id="works" className="py-12 bg-black w-full relative" style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
+    <section className="py-12 bg-black w-full relative" style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
+          id="works"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-12 flex flex-col items-start text-left"
+          className="mb-12 flex flex-col items-start text-left pt-12"
         >
           <h2 className="text-5xl md:text-[54px] font-medium text-white tracking-[-0.05em] mb-4">Selected Works</h2>
           <p className="text-white/40 text-[15px] max-w-sm font-medium leading-relaxed">

@@ -10,23 +10,37 @@ export const CTA: React.FC = () => {
   React.useEffect(() => {
     const handleOpenForm = () => {
       setIsFormVisible(true);
-      // Small timeout to allow the form visibility to trigger layout changes
       setTimeout(() => {
         const formElement = document.getElementById('form');
+        const contactSection = document.getElementById('contact');
         if (formElement) {
           formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          // Fallback to the main section if form is not yet in DOM
-          const contactSection = document.getElementById('contact');
-          if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-          }
+        } else if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
     };
 
+    // Check hash on load
+    if (window.location.hash === '#contact') {
+      handleOpenForm();
+    }
+
+    // Listen for custom event
     window.addEventListener('open-contact-form', handleOpenForm);
-    return () => window.removeEventListener('open-contact-form', handleOpenForm);
+    
+    // Also listen for hash changes
+    const handleHashChange = () => {
+      if (window.location.hash === '#contact') {
+        handleOpenForm();
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('open-contact-form', handleOpenForm);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   return (

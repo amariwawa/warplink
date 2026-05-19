@@ -55,12 +55,17 @@ export const Navbar: React.FC = () => {
 
         {/* CTA Button - Pushed to right */}
         <div className="flex-1 hidden md:flex items-center justify-end">
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent('open-contact-form'))}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.hash = 'contact';
+              window.dispatchEvent(new CustomEvent('open-contact-form'));
+            }}
             className="px-6 py-2 rounded-full bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-gray-200 transition-all duration-200"
           >
             Get in touch
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -94,15 +99,18 @@ export const Navbar: React.FC = () => {
             </a>
           ))}
           <div className="pt-6 border-t border-white/5 flex flex-col">
-            <button
-              onClick={() => {
+            <a
+              href="#contact"
+              onClick={(e) => {
                 setMobileMenuOpen(false);
+                e.preventDefault();
+                window.location.hash = 'contact';
                 window.dispatchEvent(new CustomEvent('open-contact-form'));
               }}
               className="text-center py-4 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest"
             >
               Get in touch
-            </button>
+            </a>
           </div>
         </motion.div>
       )}

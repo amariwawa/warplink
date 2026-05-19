@@ -36,12 +36,17 @@ export const Hero: React.FC = () => {
           
           {/* Buttons */}
           <div className="flex space-x-4">
-            <button 
-              onClick={() => window.dispatchEvent(new CustomEvent('open-contact-form'))}
+            <a 
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.hash = 'contact';
+                window.dispatchEvent(new CustomEvent('open-contact-form'));
+              }}
               className="bg-white text-black font-medium px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors text-sm font-sans flex items-center"
             >
               GET IN TOUCH
-            </button>
+            </a>
             <a 
               href="#works"
               className="bg-transparent text-white border border-[#222] font-medium px-6 py-3 rounded-md hover:border-[#444] transition-colors text-sm font-sans flex items-center"
