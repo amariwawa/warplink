@@ -10,10 +10,19 @@ export const CTA: React.FC = () => {
   React.useEffect(() => {
     const handleOpenForm = () => {
       setIsFormVisible(true);
-      const formElement = document.getElementById('contact');
-      if (formElement) {
-        formElement.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Small timeout to allow the form visibility to trigger layout changes
+      setTimeout(() => {
+        const formElement = document.getElementById('form');
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Fallback to the main section if form is not yet in DOM
+          const contactSection = document.getElementById('contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 100);
     };
 
     window.addEventListener('open-contact-form', handleOpenForm);
