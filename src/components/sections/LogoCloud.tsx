@@ -80,14 +80,12 @@ export const LogoCloud: React.FC = () => {
                   <div className="text-[10px] font-bold tracking-[0.4em] text-white/20 uppercase">WARPLINK // 2026</div>
                 </div>
 
-                {/* Full-bleed photorealistic image */}
+                {/* Static full-bleed photorealistic image */}
                 <div className="absolute inset-0 z-0">
                   <img 
                     src={works[activeTab].image} 
                     alt={works[activeTab].title} 
-                    className="w-full h-full object-cover transition-opacity duration-700"
-                    onLoad={(e) => (e.currentTarget.style.opacity = "1")}
-                    style={{ opacity: 0 }}
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                 </div>
