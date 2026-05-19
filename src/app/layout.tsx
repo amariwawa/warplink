@@ -12,6 +12,35 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Warplink — Design & Engineering Studio, Lagos",
   description: "We design and build digital products for African founders. Fast execution, clean code, premium output. Based in Lagos.",
+  metadataBase: new URL("https://warplink.space"),
+  alternates: {
+    canonical: "https://warplink.space",
+  },
+  openGraph: {
+    title: "Warplink — Design & Engineering Studio, Lagos",
+    description: "We design and build digital products for African founders. Fast execution, clean code, premium output. Based in Lagos.",
+    url: "https://warplink.space",
+    siteName: "Warplink",
+    images: [
+      {
+        url: "https://warplink.space/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Warplink — Design & Engineering Studio, Lagos",
+    description: "We design and build digital products for African founders. Fast execution, clean code, premium output. Based in Lagos.",
+    images: ["https://warplink.space/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
