@@ -7,6 +7,19 @@ import { ArrowRight } from "lucide-react";
 export const CTA: React.FC = () => {
   const [isFormVisible, setIsFormVisible] = React.useState(false);
 
+  React.useEffect(() => {
+    const handleOpenForm = () => {
+      setIsFormVisible(true);
+      const formElement = document.getElementById('contact');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('open-contact-form', handleOpenForm);
+    return () => window.removeEventListener('open-contact-form', handleOpenForm);
+  }, []);
+
   return (
     <div id="contact" className="w-full bg-black">
       {/* Warplink. CTA Strip */}
