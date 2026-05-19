@@ -19,20 +19,24 @@ export const CTA: React.FC = () => {
     window.location.href = `mailto:amari@warplink.space?subject=${subject}&body=${body}`;
   };
 
-  React.useEffect(() => {
-    const handleOpenForm = () => {
-      setIsFormVisible(true);
-      setTimeout(() => {
-        const formElement = document.getElementById('form');
-        const contactSection = document.getElementById('contact');
-        if (formElement) {
-          formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    };
+  const handleOpenForm = React.useCallback(() => {
+    setIsFormVisible(true);
+    // Use a longer timeout to allow the form to start expanding and the DOM to update
+    setTimeout(() => {
+      const formElement = document.getElementById('form');
+      const contactSection = document.getElementById('contact');
+      
+      if (formElement) {
+        const yOffset = -100; // Offset for navbar
+        const y = formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
+  }, []);
 
+  React.useEffect(() => {
     // Check hash on load
     if (window.location.hash === '#contact') {
       handleOpenForm();
@@ -53,7 +57,7 @@ export const CTA: React.FC = () => {
       window.removeEventListener('open-contact-form', handleOpenForm);
       window.removeEventListener('hashchange', handleHashChange);
     };
-  }, []);
+  }, [handleOpenForm]);
 
   return (
     <div id="contact" className="w-full bg-black">
@@ -83,7 +87,13 @@ export const CTA: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            onClick={() => setIsFormVisible(!isFormVisible)}
+            onClick={() => {
+              if (!isFormVisible) {
+                handleOpenForm();
+              } else {
+                setIsFormVisible(false);
+              }
+            }}
             className="group flex items-center space-x-6 bg-white px-10 py-4 rounded-full hover:bg-gray-100 transition-colors"
           >
             <span className="text-black text-[11px] font-bold uppercase tracking-[0.3em]">

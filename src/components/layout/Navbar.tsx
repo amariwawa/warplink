@@ -46,6 +46,13 @@ export const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                if (link.href === "#contact") {
+                  e.preventDefault();
+                  window.location.hash = 'contact';
+                  window.dispatchEvent(new CustomEvent('open-contact-form'));
+                }
+              }}
               className="text-[11px] font-bold uppercase tracking-widest text-white/50 hover:text-white transition-colors"
             >
               {link.name}
@@ -92,7 +99,14 @@ export const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                if (link.href === "#contact") {
+                  e.preventDefault();
+                  window.location.hash = 'contact';
+                  window.dispatchEvent(new CustomEvent('open-contact-form'));
+                }
+              }}
               className="text-xl font-medium text-white/70 hover:text-white transition-colors"
             >
               {link.name}

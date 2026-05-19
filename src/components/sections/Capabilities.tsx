@@ -28,7 +28,7 @@ export const Capabilities: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-black w-full relative" style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
+    <section id="about" className="py-24 bg-black w-full relative" style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
