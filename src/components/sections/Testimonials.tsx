@@ -14,9 +14,9 @@ export const ServicesAccordion: React.FC = () => {
   });
 
   const services = [
-    { num: "01", title: "Marketing", desc: "Data-driven marketing campaigns designed to capture and convert your target audience with high ROI.", image: "/images/marketing_service.png" },
-    { num: "02", title: "Web Development", desc: "Next-generation architectures. We build fast, scalable, and secure web applications using Next.js and modern stacks.", image: "/images/web_dev_service.png" },
-    { num: "03", title: "Motion Graphics", desc: "Premium animations and interactive WebGL experiences that set your brand apart from the competition.", image: "/images/motion_graphics_service.png" }
+    { num: "01", title: "Marketing", desc: "Campaigns built around your actual customer. We combine positioning strategy with execution — content, paid, and organic — designed to convert, not just impress.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" },
+    { num: "02", title: "Web Development", desc: "Production-grade websites and web apps. Built on modern stack, optimized for performance, and designed to grow with your product.", image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1000" },
+    { num: "03", title: "Metaverse Integration", desc: "Spatial metaverse scenes for businesses. We build immersive 3D environments and digital spaces that allow your brand to exist and interact in the next generation of the web.", image: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=1000" }
   ];
 
   // Map scroll progress to openIndex
@@ -32,16 +32,16 @@ export const ServicesAccordion: React.FC = () => {
     <section 
       id="services" 
       ref={sectionRef}
-      className="py-24 bg-black w-full relative min-h-[150vh]" 
+      className="py-12 bg-black w-full relative min-h-[120vh]" 
       style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}
     >
-      <div className="max-w-7xl mx-auto px-6 sticky top-32">
+      <div className="max-w-7xl mx-auto px-6 sticky top-24">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-24 flex flex-col items-end text-right"
+          className="mb-12 flex flex-col items-end text-right"
         >
           <h2 className="text-5xl md:text-[54px] font-medium text-white tracking-[-0.05em] mb-4">Services</h2>
           <p className="text-white/40 text-[15px] max-w-sm font-medium leading-relaxed">
@@ -95,7 +95,7 @@ export const ServicesAccordion: React.FC = () => {
                       >
                         <img 
                           src={service.image} 
-                          className="w-full h-full object-cover filter contrast-[1.2] opacity-50"
+                          className="w-full h-full object-cover filter contrast-[1.1] opacity-100 transition-opacity duration-500"
                           alt="Service Preview"
                         />
                       </motion.div>

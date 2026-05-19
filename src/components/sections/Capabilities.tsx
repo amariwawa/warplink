@@ -8,22 +8,22 @@ export const Capabilities: React.FC = () => {
     {
       num: "01",
       title: "SERVICES",
-      desc: "End-to-end design and engineering. We build products that scale and capture the essence of your brand's unique positioning in the market."
+      desc: "Full-stack design and engineering, end to end. From your first wireframe to production deploy, we handle it — so you can focus on the business."
     },
     {
       num: "02",
       title: "TECHNOLOGY",
-      desc: "Leveraging the most modern web architectures (Next.js, React) to ensure blazing fast performance and uncompromised technical foundations."
+      desc: "We build on Next.js, React, and modern web infrastructure. Fast by default. Scalable by design. No technical debt handed off to you."
     },
     {
       num: "03",
-      title: "EXPERIENCE",
-      desc: "Decades of combined experience working with top-tier African founders. We know what it takes to build a product that commands authority."
+      title: "WHO WE BUILD FOR",
+      desc: "Founders moving fast. African startups with global ambitions. Brands that want a premium digital presence without the agency runaround."
     },
     {
       num: "04",
-      title: "ANALYTICS",
-      desc: "Data-driven iteration. We rely on hard metrics to refine conversion flows, ensuring every pixel works towards your bottom line."
+      title: "HOW WE MEASURE",
+      desc: "We don't ship and disappear. We track performance, conversion, and user behavior — then iterate until the numbers reflect the quality of the work."
     }
   ];
 

@@ -6,18 +6,22 @@ import { Copy, ArrowRight } from "lucide-react";
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative bg-black text-white min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative bg-black text-white min-h-screen flex flex-col justify-start overflow-hidden">
       {/* Background grid effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
       
-      <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-20 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-20 pt-40 lg:pt-60 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
         {/* Left Content */}
         <div className="flex flex-col space-y-10 z-10">
           <h1 className="text-5xl lg:text-[76px] font-bold tracking-tight text-white leading-[0.9] font-sans">
-            Intentional digital products, <br />
-            engineered by Warplink.
+            We build the digital layer <br />
+            your brand deserves.
           </h1>
+
+          <p className="text-white/60 text-lg lg:text-xl leading-relaxed max-w-xl font-medium">
+            Warplink is a Lagos-based design and engineering studio. We work with founders who know what they want and need a team that can build it — fast, clean, and at a standard the market hasn't seen yet.
+          </p>
           
           {/* Command Line Box */}
           <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-4 flex items-center justify-between max-w-lg">

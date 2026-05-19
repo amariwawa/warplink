@@ -10,45 +10,45 @@ export const LogoCloud: React.FC = () => {
   const works = [
     { 
       title: "Design", 
-      image: "/images/starize_work.png", 
+      image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1000&auto=format&fit=crop", 
       client: "STARIZE", 
-      desc: "Comprehensive brand identity and web experience for Lagos' premier talent platform."
+      desc: "Beautiful on sight. Functional by design."
     },
     { 
       title: "Engineering", 
-      image: "/images/food_nexus_work.png", 
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop", 
       client: "FOOD NEXUS", 
-      desc: "Robust supply chain architecture for a high-growth agricultural technology startup."
+      desc: "Built clean. Runs fast. Scales when you need it to."
     },
     { 
       title: "Strategy", 
-      image: "/images/wave_pay_work.png", 
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1000", 
       client: "WAVE PAY", 
-      desc: "Strategic market positioning and fintech consulting for pan-African digital payments."
+      desc: "We figure out what you're actually building before we touch a screen."
     },
     { 
       title: "Creative", 
-      image: "/images/noir_art_work.png", 
+      image: "https://images.unsplash.com/photo-1635241161466-541f065683ba?q=80&w=1000&auto=format&fit=crop", 
       client: "NOIR ART", 
-      desc: "Digital curation and immersive gallery experience for contemporary African artists."
+      desc: "Spatial metaverse scenes and immersive 3D environments that redefine digital interaction."
     },
     { 
       title: "Product", 
-      image: "/images/core_health_work.png", 
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop", 
       client: "CORE HEALTH", 
-      desc: "End-to-end product design for a telemedicine platform serving remote communities."
+      desc: "From idea to shipped — we own the whole thing."
     }
   ];
 
   return (
-    <section id="works" className="py-24 bg-black w-full relative" style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
+    <section id="works" className="py-12 bg-black w-full relative" style={{ backgroundImage: "radial-gradient(#ffffff10 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-24 flex flex-col items-start text-left"
+          className="mb-12 flex flex-col items-start text-left"
         >
           <h2 className="text-5xl md:text-[54px] font-medium text-white tracking-[-0.05em] mb-4">Selected Works</h2>
           <p className="text-white/40 text-[15px] max-w-sm font-medium leading-relaxed">
@@ -80,16 +80,16 @@ export const LogoCloud: React.FC = () => {
                   <div className="text-[10px] font-bold tracking-[0.4em] text-white/20 uppercase">WARPLINK // 2026</div>
                 </div>
 
-                {/* Image shifted to the left */}
-                <div className="absolute inset-0 flex items-center justify-start md:pl-16 p-32">
-                  <motion.img 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                {/* Full-bleed photorealistic image */}
+                <div className="absolute inset-0 z-0">
+                  <img 
                     src={works[activeTab].image} 
                     alt={works[activeTab].title} 
-                    className="w-full h-full object-contain filter contrast-[1.2] brightness-[0.9] md:scale-[1.35] scale-[1.1]"
+                    className="w-full h-full object-cover transition-opacity duration-700"
+                    onLoad={(e) => (e.currentTarget.style.opacity = "1")}
+                    style={{ opacity: 0 }}
                   />
+                  <div className="absolute inset-0 bg-black/40" />
                 </div>
 
                 <div className="p-12 md:p-16 relative z-10 max-w-lg">
