@@ -12,6 +12,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Warplink — Design & Engineering Studio, Lagos",
   description: "We design and build digital products for African founders. Fast execution, clean code, premium output. Based in Lagos.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   metadataBase: new URL("https://warplink.space"),
   alternates: {
     canonical: "https://warplink.space",
