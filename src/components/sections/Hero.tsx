@@ -36,12 +36,18 @@ export const Hero: React.FC = () => {
           
           {/* Buttons */}
           <div className="flex space-x-4">
-            <button className="bg-white text-black font-medium px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors text-sm font-sans">
+            <a 
+              href="#works"
+              className="bg-white text-black font-medium px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors text-sm font-sans flex items-center"
+            >
               VIEW OUR WORKS
-            </button>
-            <button className="bg-transparent text-white border border-[#222] font-medium px-6 py-3 rounded-md hover:border-[#444] transition-colors text-sm font-sans">
+            </a>
+            <a 
+              href="#contact"
+              className="bg-transparent text-white border border-[#222] font-medium px-6 py-3 rounded-md hover:border-[#444] transition-colors text-sm font-sans flex items-center"
+            >
               GET IN TOUCH
-            </button>
+            </a>
           </div>
         </div>
 
