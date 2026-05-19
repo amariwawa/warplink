@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Warplink Studio | Premium Creative Agency",
-  description: "Building intentional digital experiences for ambitious founders in Lagos and beyond.",
+  title: "Warplink — Design & Engineering Studio, Lagos",
+  description: "We design and build digital products for African founders. Fast execution, clean code, premium output. Based in Lagos.",
 };
 
 export default function RootLayout({
